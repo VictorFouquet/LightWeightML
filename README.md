@@ -21,11 +21,11 @@ The library currently supports :
 
 A `Layer` stores inputs, weights, biases and outputs.
 
-It performs the mathematical operations to propagate data forward or backward, and adjust its biases and weights by gradient descent.
+It performs the mathematical operations to propagate data forward or backward, and adjust its biases and weights through gradient descent.
 
 When propagating data, either forward or backward, its returned output is mapped through activation function (going forward) or activation function's derivative (backward).
 
-** Note that the stored output doesn't get modified by the mapping operation **
+**Note that the stored output doesn't get modified by the mapping operation**
 
 When initialized, it must be provided with three parameters :
 
