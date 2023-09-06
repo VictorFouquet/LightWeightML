@@ -1,8 +1,17 @@
-﻿
-namespace MachineLearning
+﻿namespace MachineLearning.Layers
 {
-    internal class Activation
+    internal class ActivationFunction
     {
+        public static double Linear(double x)
+        {
+            return x;
+        }
+
+        public static double LinearDerivative(double x)
+        {
+            return 1;
+        }
+
         public static double Relu(double x)
         {
             return Math.Max(0, x);
