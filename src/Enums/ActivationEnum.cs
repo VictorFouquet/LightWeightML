@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MachineLearning
+namespace MachineLearning.Enums
 {
-    public enum ActivationEnum
+    internal enum ActivationEnum
     {
+        Linear,
         Relu,
         Sigmoid,
         TanH
