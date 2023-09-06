@@ -9,14 +9,14 @@ namespace MachineLearning
     /// </summary>
     public class NeuralNetwork
     {
-        public Layer[] layers;
+        public ILayer[] layers;
 
         /// <summary>
         /// Note that the input size of any layer having a layer before itself should be the same
         /// as this previous layer's output size.
         /// </summary>
         /// <param name="_layers"></param>
-        public NeuralNetwork(params Layer[] _layers)
+        public NeuralNetwork(params ILayer[] _layers)
         {
             layers = _layers;
         }
@@ -40,10 +40,11 @@ namespace MachineLearning
                     foreach (var layer in layers)
                         outputs = layer.Forward(outputs);
 
-                    var mse = Statistics.Mean(expected.Subtract(outputs).Map(n => n * n).ToColumnArrays()[0]);
+                    var mse = expected.Subtract(outputs).Map(n => n * n).ToColumnArrays()[0].Mean();
 
                     var grad = expected.Subtract(outputs).Divide(dataPoint.Y.Length).Multiply(2);
-                    for (int i = layers.Length - 1; i >= 0; i--) { 
+                    for (int i = layers.Length - 1; i >= 0; i--)
+                    {
                         grad = layers[i].Backward(grad, learningRate);
                     }
                 }

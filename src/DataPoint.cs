@@ -1,5 +1,4 @@
-﻿
-namespace MachineLearning
+﻿namespace MachineLearning
 {
     public struct DataPoint
     {
